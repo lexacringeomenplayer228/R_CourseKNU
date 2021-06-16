@@ -49,5 +49,6 @@ columnmean <- function(x,removeNA=TRUE) {
 
 test_matrix = cbind(c(1, 1, 4, NA, 1), c(1, NA, 1, 4, 4), c(0, 1, 1, 1, 1))
 
+print(test_matrix)
 print(columnmean(test_matrix))
 print(columnmean(test_matrix, FALSE))

@@ -1,20 +1,20 @@
 library(stringr)
 
-read_file <- function(file_path){
+read_file <- function(file_path) {
   # 1. Зчитати файл read.csv("olympics.csv", skip = 1, header = TRUE, encoding="UTF-8", stringsAsFactors = FALSE)
   return (read.csv(file_path, skip = 1, header = TRUE, encoding="UTF-8", stringsAsFactors = FALSE))
 }
 
-remove_invalid_rows <- function(dataframe){
+remove_invalid_rows <- function(dataframe) {
   dataframe <- remove_totals(dataframe)
   return (dataframe)
 }
 
-remove_totals <- function(dataframe){
+remove_totals <- function(dataframe) {
   return (dataframe[!dataframe[1] == "Totals", ])
 }
 
-rename_columns <- function(dataframe){
+rename_columns <- function(dataframe) {
   for (col_name in colnames(dataframe))
     names(dataframe)[names(dataframe) == col_name] <- get_new_column_name(col_name) 
   return (dataframe)

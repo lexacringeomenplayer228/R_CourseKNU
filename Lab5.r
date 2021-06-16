@@ -1,3 +1,4 @@
+# [1, 2, 3, 4] -> [001.csv, 002.csv, ...]
 generate_filename <- function (int_values) {
   return (sprintf("%03d.csv", int_values))
 }
@@ -19,6 +20,9 @@ pmean <- function(directory, pollutant, id = 1:332) {
   return(mean_pollution)
 }
 
+print("--- pmean")
+print(pmean('specdata', 'sulfate'))
+
 complete_cases_as_vector <- function(dataframe) {
   return (sapply(dataframe, function(x) sum(complete.cases(x)) ))
 }
@@ -36,6 +40,9 @@ complete <- function(directory, id){
 
   return (complete_cases_per_id)
 }
+
+print("--- complete")
+print(complete('.', 1:10))
 
 remove_if_many_na <- function(dataframe, threshold){
   return (dataframe[lapply(dataframe, function (x) { sum(complete.cases(x)) > threshold}) == TRUE])
@@ -66,4 +73,5 @@ corr <- function(directory, threshold = 0) {
   return (correlations)
 }
 
-print(corr('specdata'))
+print("--- corr")
+print(corr('.'))

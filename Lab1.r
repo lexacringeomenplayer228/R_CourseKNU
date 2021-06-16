@@ -39,21 +39,18 @@ column_2 <- matrix_values[5:8]
 column_3 <- matrix_values[9:12]
 cbind(column_1, column_2, column_3)
 
-print('Done')
 
 # 4. Створити довільний список (list), в який включити всі базові типи
 print('--------------- Task 4 ---------------')
 
 list(var_char, var_num, var_int, var_complex, var_logical)
 
-print('Done')
 
 # 5. Створити фактор з трьома рівнями «baby», «child», «adult»
 print('--------------- Task 5 ---------------')
 
 factor(c('baby', 'child', 'adult'))
 
-print('Done')
 
 # 6. Знайти індекс першого значення NA в векторі 1, 2, 3, 4, NA, 6, 7, NA, 9, NA, 11. Знайти кількість значень NA
 print('--------------- Task 6 ---------------')

@@ -1,10 +1,18 @@
 # Lab 4
 
-### "--------------- Task 1 ---------------"
+### # 1. Які назви стовпців файлу даних?
+
+```r
+(names(dataframe))
+```
 
 [1] "Ozone" "Solar.R" "Wind" "Temp" "Month" "Day"
 
-### "--------------- Task 2 ---------------"
+### 2. Виведіть перші 6 строк фрейму даних
+
+```r
+(dataframe[1:6,])
+```
 
 Ozone Solar.R Wind Temp Month Day  
 1 41 190 7.4 67 5 1  
@@ -14,11 +22,19 @@ Ozone Solar.R Wind Temp Month Day
 5 NA NA 14.3 56 5 5  
 6 28 NA 14.9 66 5 6
 
-### "--------------- Task 3 ---------------"
+### 3. Скільки спостерігань (строк) в дата фреймі?
+
+```r
+(nrow(dataframe))
+```
 
 [1] 153
 
-### "--------------- Task 4 ---------------"
+### 4. Виведіть останні 10 строк дата фрейму
+
+```r
+(tail(dataframe, 10))
+```
 
 Ozone Solar.R Wind Temp Month Day  
 144 13 238 12.6 64 9 21  
@@ -32,22 +48,45 @@ Ozone Solar.R Wind Temp Month Day
 152 18 131 8.0 76 9 29  
 153 20 223 11.5 68 9 30
 
-### "--------------- Task 5 ---------------"
+### 5. Як багато значень «NA» в стовпці «Ozone»?
+
+```r
+(sum(is.na(dataframe$'Ozone')))
+```
 
 [1] 37
 
-### "--------------- Task 6 ---------------"
+### 6. Яке середнє (mean) стовпця «Ozone». Виключити «NA» значення
+
+```r
+(mean(dataframe$'Ozone',na.rm=TRUE))
+```
 
 [1] 42.12931
 
-### "--------------- Task 7 ---------------"
+### 7. Виведіть частину набору даних (subset) зі значенням «Ozone» > 31 та «Temp» > 90. Яке середнє (mean) значень «Solar.R» в цьому наборі даних (subset)?
+
+```r
+subset = subset(dataframe, dataframe$'Ozone' > 31 & dataframe$'Temp' > 90)
+(mean(subset$'Solar.R'))
+```
 
 [1] 212.8
 
-### "--------------- Task 8 ---------------"
+### 8. Яке середнє значення (mean) для «Temp» для червня («Month» дорівнює 6)?
+
+```r
+june = subset(dataframe, dataframe$'Month' == 6)
+(mean(june$'Temp'))
+```
 
 [1] 79.1
 
-### "--------------- Task 9 ---------------"
+### 9. Яке максимальне значення «Ozone» для травня («Month» дорівнює 5)?
+
+```r
+may = subset(dataframe, dataframe$'Month' == 5)
+(max(may$'Ozone', na.rm=TRUE)) 
+```
 
 [1] 115
